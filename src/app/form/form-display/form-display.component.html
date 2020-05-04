@@ -6,7 +6,11 @@
     </mat-expansion-panel-header>
     <p>FORM INFORMATION</p>
 
-    <mat-grid-list cols="5" rowHeight="100px">
+    <mat-grid-list
+      [cols]="breakpoint"
+      rowHeight="100px"
+      (window:resize)="onResize($event)"
+    >
       <mat-grid-tile>
         <div>
           <p class="mat-caption">Name:</p>
@@ -86,7 +90,7 @@
           <p class="mat-body">{{ form.suggest.toUpperCase() }}</p>
         </div>
       </mat-grid-tile>
-      <mat-grid-tile colspan="5">
+      <mat-grid-tile colspan="{{ breakpoint }}">
         <div>
           <p class="mat-caption">Comment:</p>
           <p class="mat-body">{{ form.content }}</p>
