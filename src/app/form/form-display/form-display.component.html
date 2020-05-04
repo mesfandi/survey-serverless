@@ -1,0 +1,109 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="forms.length > 0 && !isLoading">
+  <mat-expansion-panel *ngFor="let form of forms" [expanded]="false">
+    <mat-expansion-panel-header>
+      {{ form.firstName }} {{ form.lastName }}
+    </mat-expansion-panel-header>
+    <p>FORM INFORMATION</p>
+
+    <mat-grid-list cols="5" rowHeight="100px">
+      <mat-grid-tile>
+        <div>
+          <p class="mat-caption">Name:</p>
+          <p class="mat-body">
+            {{ form.firstName.toUpperCase() }} {{ form.lastName.toUpperCase() }}
+          </p>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <div>
+          <p class="mat-caption">Date of Birth:</p>
+          <p class="mat-body">{{ form.dateOfBirth.toUpperCase() }}</p>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <div>
+          <p class="mat-caption">Street:</p>
+          <p class="mat-body">{{ form.street.toUpperCase() }}</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div>
+          <p class="mat-caption">City:</p>
+          <p class="mat-body">{{ form.city.toUpperCase() }}</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div>
+          <p class="mat-caption">State:</p>
+          <p class="mat-body">{{ form.state.toUpperCase() }}</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div>
+          <p class="mat-caption">Email:</p>
+          <p class="mat-body">{{ form.email.toUpperCase() }}</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div>
+          <p class="mat-caption">Tel:</p>
+          <p class="mat-body">{{ form.tel.toUpperCase() }}</p>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="1">
+        <div>
+          <p class="mat-caption">Liked:</p>
+          <span
+            class="mat-body"
+            *ngFor="
+              let l of [
+                'student',
+                'location',
+                'campus',
+                'atmosphere',
+                'dormroom',
+                'sports'
+              ]
+            "
+          >
+            {{ form[l] ? l.toUpperCase() + " - " : "" }}
+          </span>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1">
+        <div>
+          <p class="mat-caption">INTERESTED:</p>
+          <p class="mat-body">{{ form.intrested.toUpperCase() }}</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1">
+        <div>
+          <p class="mat-caption">RECOMMEND?</p>
+          <p class="mat-body">{{ form.suggest.toUpperCase() }}</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="5">
+        <div>
+          <p class="mat-caption">Comment:</p>
+          <p class="mat-body">{{ form.content }}</p>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-action-row>
+      <!-- <button mat-button color="primary" [routerLink]="['/edit', form.id]">
+        EDIT
+      </button> -->
+      <button mat-button color="warn" (click)="onDelete(form.id)">
+        DELETE
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="mat-body-1" *ngIf="forms.length <= 0 && !isLoading">
+  There is no Post
+</p>

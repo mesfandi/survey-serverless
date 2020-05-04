@@ -1,0 +1,42 @@
+mat-grid-tile {
+  background: lightblue;
+}
+.comment,
+textarea {
+  width: 100%;
+}
+mat-card {
+  width: 100%;
+  height: 70vh;
+  box-sizing: border-box;
+}
+
+mat-form-field {
+  margin: 10px;
+}
+mat-radio-button,
+mat-checkbox {
+  margin: 20px;
+  text-transform: capitalize;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+section {
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+#liketext {
+  margin-top: 30px;
+}
+.botNext {
+  float: right;
+}
+button {
+  margin-top: 30px;
+}
+
+mat-spinner {
+  margin: auto;
+}
