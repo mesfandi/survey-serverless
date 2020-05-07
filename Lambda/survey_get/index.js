@@ -1,7 +1,12 @@
+// this function get the data from the data base
+
+// here aws-sdk is imported
 const AWS = require("aws-sdk");
+
+//here the database is linked
 const dynamodb = new AWS.DynamoDB({region: 'us-east-1'})
 
-
+//this is the funtion which gets an event and retrun the  data
 exports.handler = async (event, context) => {
     const id = event.id;
 

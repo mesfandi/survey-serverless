@@ -1,6 +1,13 @@
+// this function post the data to the data base
+
+// here aws-sdk is imported
 const AWS = require("aws-sdk");
+
+//here the database is linked
 const dynamodb = new AWS.DynamoDB({region: 'us-east-1'})
 
+
+//this is the funtion which gets an event and posts data to database
 exports.handler =  (event, context, callback) => {
     console.log(event)
 
